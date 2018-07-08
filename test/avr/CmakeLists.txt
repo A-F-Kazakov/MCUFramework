@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 2.8)
+set(CMAKE_SYSTEM_NAME Generic)
+set(CMAKE_SYSTEM_PROCESSOR avr)
+
+set(DEVICE "atmega16")
+set(FREQ "8000000")
+
+project(testAVR)
+
+include(../../../../Utils/cmake/toolchains/avr-gcc-toolchain.cmake)
+
+add_executable(${PROJECT_NAME} AvrTest.cpp ${INCLUDE_AVR}/avrports.h)
+target_link_libraries(${PROJECT_NAME} Embedded)
+
+build_avr(${PROJECT_NAME})
