@@ -53,36 +53,6 @@ namespace velo
 				static void set(data value)																						\
 				{REG_NAME = (REG_NAME & ~(mask << BITFIELD_OFFSET)) | ((value & mask) << BITFIELD_OFFSET);}	\
 			}
-
-			template<class DATA_TYPE = unsigned char>
-			struct NullReg
-			{
-				typedef DATA_TYPE data;
-
-				static data get()
-				{ return data(0); }
-
-				static void set(data)
-				{}
-
-				static void OR(data)
-				{}
-
-				static void AND(data)
-				{}
-
-				static void XOR(data)
-				{}
-
-				static void AOR(data, data)
-				{}
-
-				template<int Bit> static bool bitIsSet()
-				{ return false; }
-
-				template<int Bit> static bool bitIsClear()
-				{ return true; }
-			};
 		}
 	}
 }
